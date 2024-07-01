@@ -1,0 +1,1 @@
+function propensity(r){fetch("https://analytics.propensity.com/analytics?customer_code="+r+"&referrer="+document.referrer+"&current_url="+window.location.href,{method:"POST",redirect:"manual"})};if(window.location.href.indexOf("propensity_test=true")>-1){console.log("Propensity Test Successful");}
