@@ -22,7 +22,7 @@ const AboutPage = () => {
           <PopupMobileMenu />
           
           <Breadcrumb 
-            title="Transforming Healthcare Through AI"
+            title="Transforming Radiology Admin Through AI"
             text="About Us"
           />
 
