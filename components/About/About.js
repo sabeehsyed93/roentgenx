@@ -19,7 +19,7 @@ const teamMembers = [
     ],
     bio: "Hassan is a radiology registrar at Watford Hospital, having graduated with distinction and merits from University College London. He has extensive experience running a large-volume online business with international suppliers, showcasing his expertise in managing complex operations. In addition to his strong background in Python programming, Hassan is proficient in Flutter and web design, making him a versatile full-stack developer. His diverse skill set and experiences drive his passion for integrating technology into healthcare, aiming to enhance efficiency and patient care in radiology.",
     image: "/images/about-us/hassan.jpg",
-    linkedin: "https://www.linkedin.com/in/hassanmahmood/"
+    linkedin: "https://www.linkedin.com/in/hassan-ahmad-112b74a3/"
   },
   {
     name: "Sabeeh Syed",
@@ -36,7 +36,7 @@ const teamMembers = [
     ],
     bio: "Sabeeh is a radiology registrar at Guy's and St Thomas' NHS Foundation Trust in London, having graduated with distinction and merits from University College London. He has a strong background in Python programming and project management. His professional journey includes a national leadership role in an international charity and founding a tech charity dedicated to 3D printing prosthetics for children in developing countries. These diverse experiences have fueled his passion for leveraging technology to improve healthcare, driving him to innovate solutions that enhance efficiency and patient care in radiology.",
     image: "/images/about-us/sabeeh.jpg",
-    linkedin: "https://www.linkedin.com/in/sabeehm/"
+    linkedin: "https://www.linkedin.com/in/sabeeh-syed-37b435159/"
   }
 ];
 
