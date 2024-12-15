@@ -1,0 +1,45 @@
+.wrapper {
+  display: inline-block;
+  position: relative;
+  padding: 0.5rem 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.wrapper :global(.cd-words-wrapper) {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.wrapper :global(.cd-words-wrapper b) {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  transform: translateY(-20px);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.wrapper :global(.cd-words-wrapper b.is-visible) {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wrapper:global(.setColor.dark) {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wrapper:global(.setColor.light) {
+  background: rgba(245, 248, 250, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
