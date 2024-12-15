@@ -44,9 +44,46 @@ const Home = () => {
   const scrollRef = useRef(null);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      Sal();
+    }
+  }, []);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const list = container.querySelector(`.${styles['protocol-list']}`);
+    const items = list.children;
+    const itemHeight = items[0].offsetHeight + 8; // 8px for margin
+    let scrollPosition = 0;
+
+    // Clone items and append them to create seamless scroll
+    Array.from(items).forEach(item => {
+      const clone = item.cloneNode(true);
+      list.appendChild(clone);
+    });
+
+    const scroll = () => {
+      scrollPosition += 1;
+      list.style.transform = `translateY(-${scrollPosition}px)`;
+
+      // Reset position when we've scrolled past the original set
+      if (scrollPosition >= itemHeight * items.length) {
+        scrollPosition = 0;
+        list.style.transform = 'translateY(0)';
+      }
+
+      requestAnimationFrame(scroll);
+    };
+
+    requestAnimationFrame(scroll);
+  }, []);
+
+  useEffect(() => {
     const intervalId = setInterval(() => {
       setVisibleIndex((prevIndex) => (prevIndex + 1) % 3);
-    }, 2000); // Animation timing
+    }, 2000);
 
     return () => {
       clearInterval(intervalId);
@@ -54,65 +91,59 @@ const Home = () => {
   }, []);
 
   return (
-    <div
-      className="slider-area slider-style-1 variation-default slider-bg-image bg-banner1 slider-bg-shape"
-      data-black-overlay="1"
-    >
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-12">
-            <div className="inner text-center mt--140">
-              <h1 className="title display-one">
-                VetBot Allows you to protocol
-                <br />
-                <span
-                  style={{ marginTop: "2rem", display: "inline-block" }}
-                  className="header-caption"
-                >
-                  <span
-                    className={`${styles.wrapper} setColor ${
-                      isLightTheme ? "dark" : "light"
-                    }`}
-                  >
-                    <span className="cd-headline rotate-1">
-                      <span className="cd-words-wrapper">
-                        <b
-                          className={
-                            visibleIndex === 0
-                              ? "is-visible theme-gradient"
-                              : "is-hidden theme-gradient"
-                          }
-                        >
-                          CT Scans
-                        </b>
-                        <b
-                          className={
-                            visibleIndex === 1
-                              ? "is-visible theme-gradient"
-                              : "is-hidden theme-gradient"
-                          }
-                        >
-                          MRI scans
-                        </b>
-                        <b
-                          className={
-                            visibleIndex === 2
-                              ? "is-visible theme-gradient"
-                              : "is-hidden theme-gradient"
-                          }
-                        >
-                          US scans
-                        </b>
+    <>
+      <div
+        className="slider-area slider-style-1 variation-default slider-bg-image bg-banner1 slider-bg-shape"
+        data-black-overlay="1"
+      >
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-12">
+              <div className="inner text-center mt--140">
+                <h1 className="title display-one">
+                  VetBot Allows you to protocol
+                  <br />
+                  <span style={{ marginTop: "2rem", display: "inline-block" }} className="header-caption">
+                    <span className={`${textStyles.wrapper} setColor ${isLightTheme ? 'dark' : 'light'}`}>
+                      <span className="cd-headline rotate-1">
+                        <span className="cd-words-wrapper">
+                          <b
+                            className={
+                              visibleIndex === 0
+                                ? "is-visible theme-gradient"
+                                : "is-hidden theme-gradient"
+                            }
+                          >
+                            CT Scans
+                          </b>
+                          <b
+                            className={
+                              visibleIndex === 1
+                                ? "is-visible theme-gradient"
+                                : "is-hidden theme-gradient"
+                            }
+                          >
+                            MRI scans
+                          </b>
+                          <b
+                            className={
+                              visibleIndex === 2
+                                ? "is-visible theme-gradient"
+                                : "is-hidden theme-gradient"
+                            }
+                          >
+                            US scans
+                          </b>
+                        </span>
                       </span>
                     </span>
-                  </span>
-                </span>{" "}
-                With AI
-              </h1>
-              <p className="description">
-                Use AI to reduce wasted time <br />{" "}
-                So resource are used for what matters most
-              </p>
+                  </span>{" "}
+                  With AI
+                </h1>
+                <p className="description">
+                  Use AI to reduce wasted time <br />{" "}
+                  So resource are used for what matters most
+                </p>
 
                 <div className={`${styles['protocol-container']} setColor ${isLightTheme ? 'dark' : 'light'}`}>
                   <h3 className={styles['protocol-title']}>Available Protocols:</h3>
