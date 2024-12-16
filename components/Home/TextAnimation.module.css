@@ -1,0 +1,100 @@
+.wrapper {
+  display: inline-flex;
+  position: relative;
+  padding: 0.25rem 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+  width: 320px;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+  perspective: 300px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.wrapper :global(.cd-headline) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.wrapper :global(.cd-words-wrapper) {
+  display: inline-flex;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  min-height: 2.8rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.wrapper :global(.cd-words-wrapper.show-animation) {
+  opacity: 1;
+}
+
+.wrapper :global(.cd-words-wrapper b) {
+  display: inline-flex;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  transform: translateY(0);
+  font-size: inherit;
+  opacity: 0;
+  will-change: transform, opacity;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper :global(.cd-words-wrapper b.initial-text) {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease;
+}
+
+.wrapper :global(.cd-words-wrapper b.is-visible) {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  pointer-events: auto;
+}
+
+.wrapper :global(.cd-words-wrapper b.is-hidden) {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.wrapper:global(.setColor.dark) {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wrapper:global(.setColor.light) {
+  background: rgba(245, 248, 250, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 0.25rem 1rem;
+    width: 260px;
+    min-height: 2.8rem;
+  }
+}
